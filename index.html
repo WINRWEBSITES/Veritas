@@ -130,6 +130,15 @@
     color: #4a4a4a;
   }
 
+  /* About extended description */
+  #about .extended {
+    max-width: 720px;
+    margin: 20px auto 0;
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #4a4a4a;
+  }
+
   /* Services Page */
   .service-list {
     display: flex;
@@ -161,6 +170,18 @@
   .service-item p {
     font-weight: 400;
     color: #5a4a20;
+  }
+
+  /* Additional services list */
+  #services .additional-services {
+    max-width: 720px;
+    margin: 30px auto 0;
+    font-size: 1.1em;
+    color: #4a4a4a;
+    line-height: 1.6;
+  }
+  #services .additional-services ul {
+    list-style: disc inside;
   }
 
   /* Contact Page */
@@ -301,34 +322,50 @@
 <main>
   <section id="home" class="active">
     <h1>Welcome to Veritas Associates</h1>
-    <p>Your trusted partner for professional services and solutions that empower your business growth and success.</p>
+    <p>Your trusted partner for professional legal services that combine expertise, integrity, and dedication to protect your interests and secure your future.</p>
   </section>
 
   <section id="about">
     <h2>About Us</h2>
-    <p>Veritas Associates is committed to excellence across various domains. With decades of expertise, we deliver innovative and customer-centric solutions.</p>
+    <p>Veritas Associates is a leading law firm known for its commitment to legal integrity and professional excellence. Our mission is to provide personalized legal solutions to individuals and businesses with the highest standards of ethics and professionalism.</p>
     <ul>
-      <li>Experienced professionals offering tailored solutions</li>
-      <li>Customer-first approach to build lasting partnerships</li>
-      <li>Innovative strategies adapting to evolving markets</li>
+      <li>Experienced lawyers specializing in multiple areas of law.</li>
+      <li>Client-centric approach ensuring transparent, trustworthy guidance.</li>
+      <li>Focus on safeguarding clients’ rights and achieving optimal outcomes.</li>
     </ul>
+    <p class="extended">With decades of combined experience, our team advises on complex legal matters including corporate law, litigation, intellectual property, real estate, regulatory compliance, and labor & employment law. We employ innovative strategies while upholding strict ethical values to serve our clients effectively.</p>
   </section>
 
   <section id="services">
     <h2>Our Services</h2>
     <div class="service-list">
       <div class="service-item">
-        <h3>Consulting</h3>
-        <p>Expert advice to optimize efficiency and maximize returns.</p>
+        <h3>Corporate & Commercial Law</h3>
+        <p>Advising on mergers & acquisitions, joint ventures, corporate governance, and regulatory compliance.</p>
       </div>
       <div class="service-item">
-        <h3>Project Management</h3>
-        <p>Comprehensive planning and successful execution of your projects.</p>
+        <h3>Litigation & Dispute Resolution</h3>
+        <p>Representing clients in civil and criminal litigation, arbitration, and alternative dispute resolution.</p>
       </div>
       <div class="service-item">
-        <h3>Training</h3>
-        <p>Engaging training programs to empower your teams.</p>
+        <h3>Real Estate & Property Law</h3>
+        <p>Handling transactions, lease agreements, and legal matters related to property ownership and disputes.</p>
       </div>
+      <div class="service-item">
+        <h3>Intellectual Property Rights</h3>
+        <p>Protecting trademarks, copyrights, patents, and advising on technology law including data privacy and AI compliance.</p>
+      </div>
+      <div class="service-item">
+        <h3>Labour & Employment Law</h3>
+        <p>Providing counseling on employment contracts, workplace disputes, and compliance with labor regulations.</p>
+      </div>
+      <div class="service-item">
+        <h3>White Collar Crime & Compliance</h3>
+        <p>Assisting with legal matters involving fraud, corporate compliance, and due diligence.</p>
+      </div>
+    </div>
+    <div class="additional-services">
+      <p>Additional consulting for sectors like healthcare, fintech, hospitality, energy, and retail, tailored to meet industry-specific legal requirements.</p>
     </div>
   </section>
 
