@@ -74,7 +74,7 @@
 
   /* Main Content */
   main {
-    padding: 100px 20px 40px; /* room for header */
+    padding: 110px 20px 40px; /* room for header */
     display: flex;
     flex-direction: column;
     gap: 36px;
@@ -107,14 +107,68 @@
     max-width: 620px;
     line-height: 1.5;
     color: #3a3a3a;
+    margin-bottom: 25px;
   }
   #home .intro {
-    margin-top: 18px;
-    max-width: 720px;
     font-size: 1em;
     color: #5f5500;
     font-style: italic;
     line-height: 1.5;
+    max-width: 720px;
+    margin-bottom: 30px;
+  }
+
+  /* Slideshow container */
+  .slideshow {
+    position: relative;
+    max-width: 720px;
+    height: 360px;
+    margin: 0 auto 30px;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgb(201 165 54 / 0.3);
+  }
+
+  .slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    object-fit: cover;
+  }
+
+  .slide.active {
+    opacity: 1;
+    z-index: 2;
+  }
+
+  /* Services Buttons */
+  .services-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 18px;
+    max-width: 720px;
+    margin: 0 auto 20px;
+  }
+
+  .service-btn {
+    background: #c9a536;
+    border: none;
+    color: #111111;
+    font-weight: 700;
+    padding: 14px 28px;
+    border-radius: 1rem;
+    font-size: 1em;
+    cursor: pointer;
+    box-shadow: 0 5px 15px #c9a536bb;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    white-space: nowrap;
+  }
+  .service-btn:hover {
+    background: #a87c0f;
+    box-shadow: 0 7px 22px #a87c0fbb;
   }
 
   /* About Page */
@@ -175,25 +229,6 @@
     font-weight: 400;
     color: #524b0c;
     font-size: 0.95em;
-  }
-
-  /* Additional services list */
-  #services .additional-services {
-    max-width: 720px;
-    margin: 28px auto 0;
-    font-size: 1em;
-    color: #4a4a4a;
-    line-height: 1.6;
-  }
-
-  #services .quote {
-    font-style: italic;
-    max-width: 720px;
-    margin: 40px auto 0;
-    font-size: 1.05em;
-    color: #675e17;
-    border-left: 5px solid #c9a536;
-    padding-left: 1em;
   }
 
   /* Contact Page */
@@ -269,7 +304,7 @@
   }
   .directions-btn {
     display: inline-block;
-    margin: 18px auto 0;
+    margin: 20px auto 0;
     background: #c9a536;
     color: #1b1b1b;
     text-decoration: none;
@@ -278,11 +313,11 @@
     font-weight: 700;
     font-size: 1em;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 12px #c9a536bb;
+    box-shadow: 0 5px 15px #c9a536bb;
   }
   .directions-btn:hover {
     background: #a87c0f;
-    box-shadow: 0 6px 18px #a87c0fbb;
+    box-shadow: 0 7px 22px #a87c0fbb;
   }
 
   /* Footer fixed */
@@ -302,7 +337,7 @@
   /* Responsive */
   @media (max-width: 768px) {
     nav ul {
-      gap: 12px;
+      gap: 14px;
       flex-wrap: wrap;
       justify-content: center;
     }
@@ -343,7 +378,18 @@
   <section id="home" class="active">
     <h1>Welcome to Veritas Associates</h1>
     <p>Your trusted partner for professional legal services that combine unparalleled expertise, unwavering integrity, and committed advocacy to protect your rights and secure your future.</p>
-    <p class="intro">As a distinguished team of legal professionals, we specialize in a comprehensive range of lawyer services dedicated to corporate clients, individuals, and government bodies. At Veritas Associates, your legal needs are handled with precision, ethics, and a client-first approach.</p>
+    <div class="slideshow">
+      <img src="https://images.unsplash.com/photo-1555374013-7f2bf49d465d?auto=format&fit=crop&w=720&q=80" class="slide active" alt="Law firm office" />
+      <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=720&q=80" class="slide" alt="Legal documents" />
+      <img src="https://images.unsplash.com/photo-1542223616-2fd0e995fd37?auto=format&fit=crop&w=720&q=80" class="slide" alt="Lawyer consulting client" />
+    </div>
+    <div class="services-buttons" role="navigation" aria-label="Services navigation buttons">
+      <button class="service-btn" data-target="services">Corporate & Commercial Law</button>
+      <button class="service-btn" data-target="services">Litigation & Dispute Resolution</button>
+      <button class="service-btn" data-target="services">Real Estate & Property Law</button>
+      <button class="service-btn" data-target="services">Intellectual Property Rights</button>
+      <button class="service-btn" data-target="services">Labour & Employment Law</button>
+    </div>
   </section>
 
   <section id="about">
@@ -457,6 +503,14 @@
     }
   });
 
+  // Services buttons navigation
+  document.querySelectorAll('.service-btn').forEach(button => {
+    button.addEventListener('click', () => {
+      document.querySelector('#menu a[data-target="services"]').click();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
   // Contact form AJAX submit and message display
   document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("contactForm");
@@ -496,6 +550,17 @@
       }
     });
   });
+
+  // Slideshow functionality
+  let slideIndex = 0;
+  function showSlides() {
+    const slides = document.querySelectorAll('.slide');
+    slides.forEach(s => s.classList.remove('active'));
+    slideIndex = (slideIndex + 1) % slides.length;
+    slides[slideIndex].classList.add('active');
+    setTimeout(showSlides, 4000);
+  }
+  document.addEventListener("DOMContentLoaded", showSlides);
 </script>
 
 </body>
