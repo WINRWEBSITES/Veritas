@@ -91,9 +91,9 @@
     display: none;
     background: white;
     color: #0B3D91; /* navy text */
-    border-radius: 1.618rem;
+    border-radius: 1rem;
     box-shadow: 0 8px 30px rgba(0,63,112,0.3);
-    padding: 38px 45px;
+    padding: 35px 45px;
     border: 4px solid #ffd700; /* bright gold border */
     font-family: 'Georgia', serif;
   }
@@ -115,45 +115,19 @@
   #home p {
     font-size: 1.1em;
     max-width: 640px;
-    line-height: 1.6;
-    font-family: 'Arial', sans-serif;
-    color: #122344;
-    margin-bottom: 26px;
-  }
-  #home .intro {
-    font-style: italic;
-    font-size: 1em;
-    max-width: 740px;
-    margin-bottom: 35px;
-    color: #26418f;
-  }
-
-  /* Legal quotations */
-  #home .quotes {
-    max-width: 720px;
-    margin: 30px auto 0;
-    font-style: italic;
-    font-weight: 700;
-    font-size: 1.05em;
-    color: #001f3f;
     line-height: 1.7;
-    border-left: 6px solid #ffd700;
-    background: #f9f4d4;
-    padding: 15px 25px;
-    border-radius: 1rem 0 0 1rem;
-    font-family: 'Georgia', serif;
+    font-family: Arial, sans-serif;
+    color: #26418f;
+    margin-bottom: 30px;
   }
-
-  /* Services Buttons */
-  .services-buttons {
+  #home .services-buttons {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 18px;
     max-width: 720px;
-    margin: 0 auto 25px;
+    margin: 0 auto 40px;
   }
-
   .service-btn {
     background: #ffd700;
     border: none;
@@ -172,8 +146,22 @@
     background: #ccac00;
     box-shadow: 0 7px 22px #ccac0088;
   }
+  #home .quotes {
+    max-width: 720px;
+    margin: 30px auto 0;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 1.05em;
+    color: #001f3f;
+    line-height: 1.7;
+    border-left: 6px solid #ffd700;
+    background: #f9f4d4;
+    padding: 15px 25px;
+    border-radius: 1rem 0 0 1rem;
+    font-family: 'Georgia', serif;
+  }
 
-  /* Other sections text */
+  /* About Page */
   #about h2, #services h2, #contact h2 {
     font-family: 'Big John', cursive;
     font-size: 2.2em;
@@ -190,7 +178,7 @@
     font-size: 1em;
     line-height: 1.6;
     color: #122244;
-    font-family: 'Arial', sans-serif;
+    font-family: Arial, sans-serif;
   }
   #about ul {
     max-width: 720px;
@@ -202,6 +190,7 @@
     font-family: Arial, sans-serif;
   }
 
+  /* Services Page */
   .service-list {
     display: flex;
     flex-wrap: wrap;
@@ -211,10 +200,10 @@
   .service-item {
     flex: 1 1 280px;
     background: #f0eabb;
-    border-radius: 1.618rem;
+    border-radius: 1rem;
     border: 2px solid #cca500;
     padding: 25px 30px;
-    box-shadow: 0 3px 12px rgb(204 165 0 / 0.20);
+    box-shadow: 0 4px 14px rgb(201 165 54 / 0.20);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     font-weight: 600;
     color: #4b4d15;
@@ -222,7 +211,7 @@
   }
   .service-item:hover {
     transform: translateY(-6px);
-    box-shadow: 0 7px 18px rgb(204 165 0 / 0.35);
+    box-shadow: 0 7px 18px rgb(201 165 54 / 0.35);
     background: #fff9a1;
   }
   .service-item h3 {
@@ -236,12 +225,29 @@
     font-weight: 400;
     font-size: 0.95em;
   }
+  #services .additional-services {
+    max-width: 720px;
+    margin: 28px auto 0;
+    font-size: 1em;
+    color: #4a4a4a;
+    line-height: 1.6;
+  }
+  #services .quote {
+    font-style: italic;
+    max-width: 720px;
+    margin: 40px auto 0;
+    font-size: 1.05em;
+    color: #675e17;
+    border-left: 5px solid #c9a536;
+    padding-left: 1em;
+  }
 
+  /* Contact Page */
   form {
     max-width: 600px;
     background: white;
     padding: 32px 38px;
-    border-radius: 1.618rem;
+    border-radius: 1rem;
     border: 3px solid #cca500;
     box-shadow: 0 5px 14px rgb(204 165 0 / 0.3);
     display: flex;
@@ -253,7 +259,7 @@
 
   form input, form textarea {
     padding: 12px 16px;
-    border: 2px solid #cca500;
+    border: 1.5px solid #cca500;
     border-radius: 0.618rem;
     font-size: 1em;
     width: 100%;
@@ -273,7 +279,7 @@
     border: none;
     font-weight: 800;
     border-radius: 0.8rem;
-    padding: 15px;
+    padding: 16px;
     cursor: pointer;
     font-size: 1em;
     letter-spacing: 0.05em;
@@ -386,20 +392,13 @@
   <section id="home" class="active" aria-label="Home Page">
     <h1>Welcome to Veritas Associates</h1>
     <p>Your trusted partner for professional legal services that combine unparalleled expertise, unwavering integrity, and committed advocacy to protect your rights and secure your future.</p>
-    <p class="intro">As a distinguished team of legal professionals, we specialize in a comprehensive range of lawyer services dedicated to corporate clients, individuals, and government bodies. At Veritas Associates, your legal needs are handled with precision, ethics, and a client-first approach.</p>
-
-    <div class="slideshow" aria-label="Image slideshow featuring legal themes">
-      <img src="https://images.unsplash.com/photo-1555374013-7f2bf49d465d?auto=format&fit=crop&w=720&q=80" class="slide active" alt="Law firm office interior" />
-      <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=720&q=80" class="slide" alt="Close-up of legal documents" />
-      <img src="https://images.unsplash.com/photo-1542223616-2fd0e995fd37?auto=format&fit=crop&w=720&q=80" class="slide" alt="Lawyer consulting with client" />
-    </div>
-
     <div class="services-buttons" role="navigation" aria-label="Quick navigation to services">
       <button class="service-btn" data-target="services">Corporate & Commercial Law</button>
       <button class="service-btn" data-target="services">Litigation & Dispute Resolution</button>
       <button class="service-btn" data-target="services">Real Estate & Property Law</button>
       <button class="service-btn" data-target="services">Intellectual Property Rights</button>
       <button class="service-btn" data-target="services">Labour & Employment Law</button>
+      <button class="service-btn" data-target="services">White Collar Crime & Compliance</button>
     </div>
 
     <div class="quotes">
@@ -421,15 +420,79 @@
   </section>
 
   <section id="services" aria-label="Our Services">
-    <!-- existing services content unchanged -->
-
-    <!-- For brevity not repeated here, same content as previous -->
+    <h2>Our Services</h2>
+    <div class="service-list">
+      <div class="service-item">
+        <h3>Corporate & Commercial Law</h3>
+        <p>Advising on mergers & acquisitions, joint ventures, corporate governance, and regulatory compliance.</p>
+      </div>
+      <div class="service-item">
+        <h3>Litigation & Dispute Resolution</h3>
+        <p>Representing clients in civil and criminal litigation, arbitration, and alternative dispute resolution.</p>
+      </div>
+      <div class="service-item">
+        <h3>Real Estate & Property Law</h3>
+        <p>Handling transactions, lease agreements, and legal matters related to property ownership and disputes.</p>
+      </div>
+      <div class="service-item">
+        <h3>Intellectual Property Rights</h3>
+        <p>Protecting trademarks, copyrights, patents, and advising on technology law including data privacy and AI compliance.</p>
+      </div>
+      <div class="service-item">
+        <h3>Labour & Employment Law</h3>
+        <p>Providing counseling on employment contracts, workplace disputes, and compliance with labor regulations.</p>
+      </div>
+      <div class="service-item">
+        <h3>White Collar Crime & Compliance</h3>
+        <p>Assisting with legal matters involving fraud, corporate compliance, and due diligence.</p>
+      </div>
+      <div class="service-item">
+        <h3>Environmental & Regulatory Law</h3>
+        <p>Guidance on environmental regulations, compliance planning, and related litigation.</p>
+      </div>
+      <div class="service-item">
+        <h3>Family & Estate Law</h3>
+        <p>Handling family disputes, wills, trusts, and estate planning with compassion and expertise.</p>
+      </div>
+      <div class="service-item">
+        <h3>Immigration Law</h3>
+        <p>Representation for visa applications, residency, citizenship, and immigration appeals.</p>
+      </div>
+    </div>
+    <div class="additional-services">
+      <p>Additional consulting for sectors like healthcare, fintech, hospitality, energy, and retail, tailored to meet industry-specific legal requirements.</p>
+    </div>
+    <div class="quote">“The good lawyer is the great salesman.” – Janet Reno<br><br>
+    “A lawyer’s duty is to uphold justice and protect the rights of those they serve, maintaining integrity above all.”</div>
   </section>
 
   <section id="contact" aria-label="Contact Us">
-    <!-- existing contact content unchanged -->
+    <h2>Contact Us</h2>
+    
+    <form id="contactForm" action="https://formsubmit.co/ajax/skumarfilmfunds@gmail.com" method="POST" novalidate>
+      <input type="text" name="name" placeholder="Your Full Name" required />
+      <input type="email" name="email" placeholder="Your Email Address" required />
+      <input type="tel" name="mobile" placeholder="Your Mobile Number" pattern="[0-9]{10}" maxlength="10" required />
+      <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+      <div id="form-message"></div>
+      <button type="submit">Send Message</button>
+    </form>
 
-    <!-- For brevity not repeated here, same content as previous -->
+    <div class="contact-info">
+      <p><strong>Address:</strong><br />
+      4th Floor, Regus - Hyderabad Begumpet,<br />
+      Above Zudio - Gumidelli Towers,<br />
+      Sardar Patel Rd, Near Starbucks,<br />
+      Prakash Nagar, Begumpet,<br />
+      Hyderabad, Telangana 500016, India</p>
+
+      <a href="https://www.google.com/maps/dir/?api=1&destination=Veritas+Associates,+4th+Floor,+Regus+-+Hyderabad+Begumpet,+Above+Zudio+-+Gumidelli+Towers,+Prakash+Nagar,+Begumpet,+Hyderabad,+Telangana+500016" 
+         target="_blank" 
+         class="directions-btn" 
+         rel="noopener noreferrer">
+         Get Directions
+      </a>
+    </div>
   </section>
 </main>
 
@@ -503,17 +566,6 @@
       }
     });
   });
-
-  // Slideshow functionality
-  let slideIndex = 0;
-  function showSlides() {
-    const slides = document.querySelectorAll('.slide');
-    slides.forEach(s => s.classList.remove('active'));
-    slideIndex = (slideIndex + 1) % slides.length;
-    slides[slideIndex].classList.add('active');
-    setTimeout(showSlides, 4000);
-  }
-  document.addEventListener("DOMContentLoaded", showSlides);
 </script>
 
 </body>
