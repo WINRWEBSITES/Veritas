@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Veritas Associates</title>
+<style>
+  /* General Reset and Styles */
+  * {
+    box-sizing: border-box;
+    margin: 0; padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  body {
+    background: #fefcf8;
+    padding-bottom: 70px; /* for fixed footer */
+    color: #272727;
+  }
+  
+  .container {
+    width: 90%;
+    max-width: 1080px; /* golden ratio: 1080 x 1.618 */
+    margin: auto;
+  }
+
+  /* Fixed Header */
+  header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: #1b1b1b;
+    color: white;
+    z-index: 1000;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+  }
+
+  header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+  }
+
+  header .logo {
+    font-size: 1.8em;
+    font-weight: 700;
+    font-family: "Georgia", serif;
+    letter-spacing: 2px;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 22px;
+  }
+
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 20px;
+    border-radius: 9999px; /* pill shape */
+    font-weight: 600;
+    font-size: 1em;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+    letter-spacing: 0.04em;
+  }
+  nav ul li a.active,
+  nav ul li a:hover {
+    background-color: #d4af37; /* rich gold */
+    color: #1b1b1b;
+    box-shadow: 0 0 8px #d4af37cc;
+  }
+
+  /* Main Content */
+  main {
+    padding: 110px 20px 40px; /* room for header */
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  section {
+    display: none;
+    background: white;
+    border-radius: 1.618rem; /* golden ratio radius */
+    box-shadow: 0 4px 12px rgb(212 175 55 / 0.2);
+    padding: 30px 40px;
+    border: 3px solid #d4af37;
+  }
+
+  section.active {
+    display: block;
+  }
+
+  /* Home Page */
+  #home h1 {
+    font-size: 2.8em;
+    font-family: "Georgia", serif;
+    margin-bottom: 12px;
+    letter-spacing: 0.1em;
+    color: #b8860b; /* dark goldenrod */
+  }
+  #home p {
+    font-size: 1.25em;
+    max-width: 600px;
+    line-height: 1.5;
+  }
+
+  /* About Page */
+  #about h2, #services h2, #contact h2 {
+    font-family: "Georgia", serif;
+    font-size: 2.4em;
+    margin-bottom: 25px;
+    color: #b8860b;
+    text-align: center;
+  }
+  #about p {
+    max-width: 720px;
+    margin: 0 auto 25px;
+    font-size: 1.1em;
+    line-height: 1.6;
+  }
+  #about ul {
+    max-width: 720px;
+    margin: 0 auto;
+    list-style: disc inside;
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #4a4a4a;
+  }
+
+  /* Services Page */
+  .service-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+    justify-content: center;
+  }
+  .service-item {
+    flex: 1 1 280px;
+    background: #fff7e6;
+    border-radius: 1.618rem;
+    border: 2px solid #d4af37;
+    padding: 25px 30px;
+    box-shadow: 0 3px 10px rgb(212 175 55 / 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-weight: 600;
+  }
+  .service-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 6px 20px rgb(212 175 55 / 0.35);
+    background: #fff6cc;
+  }
+  .service-item h3 {
+    margin-bottom: 10px;
+    color: #b8860b;
+    font-family: "Georgia", serif;
+    font-weight: 700;
+  }
+  .service-item p {
+    font-weight: 400;
+    color: #5a4a20;
+  }
+
+  /* Contact Page */
+  form {
+    max-width: 600px;
+    background: white;
+    padding: 30px 40px;
+    border-radius: 1.618rem;
+    border: 3px solid #d4af37;
+    box-shadow: 0 4px 14px rgb(212 175 55 / 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin: 0 auto 35px;
+  }
+
+  form input, form textarea {
+    padding: 14px 18px;
+    border: 1.5px solid #d4af37;
+    border-radius: 0.618rem;
+    font-size: 1.1em;
+    width: 100%;
+    resize: vertical;
+    transition: border-color 0.3s ease;
+  }
+  form input:focus, form textarea:focus {
+    border-color: #b8860b;
+    outline: none;
+  }
+
+  form button {
+    background: #d4af37;
+    color: #1b1b1b;
+    border: none;
+    font-weight: 800;
+    border-radius: 0.618rem;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 1.1em;
+    letter-spacing: 0.06em;
+    box-shadow: 0 4px 12px #d4af37bb;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  form button:hover {
+    background: #b8860b;
+    box-shadow: 0 6px 18px #b8860dbc;
+  }
+
+  /* Form messages */
+  #form-message {
+    font-weight: 700;
+    font-size: 1.05em;
+    display: none;
+    margin-top: 10px;
+  }
+  #form-message.success {
+    color: #4a7c00;
+  }
+  #form-message.error {
+    color: #a83232;
+  }
+
+  /* Contact Address & Directions */
+  .contact-info {
+    max-width: 600px;
+    margin: 0 auto 35px;
+    color: #4a4a4a;
+    font-size: 1.1em;
+    line-height: 1.6;
+    text-align: center;
+  }
+  .directions-btn {
+    display: inline-block;
+    margin: 15px auto 0;
+    background: #d4af37;
+    color: #1b1b1b;
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: 1rem;
+    font-weight: 700;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 12px #d4af37bb;
+  }
+  .directions-btn:hover {
+    background: #b8860b;
+    box-shadow: 0 6px 18px #b8860dbc;
+  }
+
+  /* Footer fixed */
+  footer {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: #fefcf8;
+    padding: 15px 20px;
+    text-align: center;
+    box-shadow: 0 -2px 8px rgba(212, 175, 55, 0.3);
+    font-weight: 600;
+    font-size: 1em;
+    color: #6a5200;
+    z-index: 1000;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    nav ul {
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .service-list {
+      flex-direction: column;
+      align-items: center;
+    }
+    form {
+      padding: 25px;
+      width: 90%;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <h1 class="logo">Veritas Associates</h1>
+    <nav>
+      <ul id="menu">
+        <li><a href="#" data-target="home" class="active">Home</a></li>
+        <li><a href="#" data-target="about">About</a></li>
+        <li><a href="#" data-target="services">Services</a></li>
+        <li><a href="#" data-target="contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section id="home" class="active">
+    <h1>Welcome to Veritas Associates</h1>
+    <p>Your trusted partner for professional services and solutions that empower your business growth and success.</p>
+  </section>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <p>Veritas Associates is committed to excellence across various domains. With decades of expertise, we deliver innovative and customer-centric solutions.</p>
+    <ul>
+      <li>Experienced professionals offering tailored solutions</li>
+      <li>Customer-first approach to build lasting partnerships</li>
+      <li>Innovative strategies adapting to evolving markets</li>
+    </ul>
+  </section>
+
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="service-list">
+      <div class="service-item">
+        <h3>Consulting</h3>
+        <p>Expert advice to optimize efficiency and maximize returns.</p>
+      </div>
+      <div class="service-item">
+        <h3>Project Management</h3>
+        <p>Comprehensive planning and successful execution of your projects.</p>
+      </div>
+      <div class="service-item">
+        <h3>Training</h3>
+        <p>Engaging training programs to empower your teams.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    
+    <form id="contactForm" action="https://formsubmit.co/ajax/skumarfilmfunds@gmail.com" method="POST" novalidate>
+      <input type="text" name="name" placeholder="Your Full Name" required />
+      <input type="email" name="email" placeholder="Your Email Address" required />
+      <input type="tel" name="mobile" placeholder="Your Mobile Number" pattern="[0-9]{10}" maxlength="10" required />
+      <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+      <div id="form-message"></div>
+      <button type="submit">Send Message</button>
+    </form>
+
+    <div class="contact-info">
+      <p><strong>Address:</strong><br />
+      4th Floor, Regus - Hyderabad Begumpet,<br />
+      Above Zudio - Gumidelli Towers,<br />
+      Sardar Patel Rd, Near Starbucks,<br />
+      Prakash Nagar, Begumpet,<br />
+      Hyderabad, Telangana 500016, India</p>
+
+      <a href="https://www.google.com/maps/dir/?api=1&destination=Veritas+Associates,+4th+Floor,+Regus+-+Hyderabad+Begumpet,+Above+Zudio+-+Gumidelli+Towers,+Prakash+Nagar,+Begumpet,+Hyderabad,+Telangana+500016" 
+         target="_blank" 
+         class="directions-btn" 
+         rel="noopener noreferrer">
+         Get Directions
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  © 2025 Veritas Associates. All Rights Reserved.
+</footer>
+
+<script>
+  // Navigation handling
+  document.getElementById('menu').addEventListener('click', function(e) {
+    if (e.target.tagName === 'A') {
+      e.preventDefault();
+      const target = e.target.dataset.target;
+
+      // Update active link
+      document.querySelectorAll('#menu a').forEach(link => {
+        link.classList.toggle('active', link === e.target);
+      });
+
+      // Show target section, hide others
+      document.querySelectorAll('main section').forEach(section => {
+        section.classList.toggle('active', section.id === target);
+      });
+    }
+  });
+
+  // Contact form AJAX submit and message display
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("contactForm");
+    const formMessage = document.getElementById("form-message");
+
+    form.addEventListener("submit", async function (event) {
+      event.preventDefault();
+
+      formMessage.style.display = "none";
+      formMessage.textContent = "";
+      formMessage.className = "";
+
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch(form.action, {
+          method: "POST",
+          headers: { 'Accept': 'application/json' },
+          body: formData
+        });
+
+        if (response.ok) {
+          formMessage.classList.add("success");
+          formMessage.textContent = "Thank you! Your message has been sent.";
+          formMessage.style.display = "block";
+          form.reset();
+        } else {
+          const errorData = await response.json();
+          formMessage.classList.add("error");
+          formMessage.textContent = "Oops! Problem submitting your form: " + (errorData.message || "Unknown error");
+          formMessage.style.display = "block";
+        }
+      } catch (error) {
+        formMessage.classList.add("error");
+        formMessage.textContent = "Oops! Network error: " + error.message;
+        formMessage.style.display = "block";
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
