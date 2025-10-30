@@ -5,21 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Veritas Associates</title>
 
-<!-- Big John font import -->
-<link href="https://fonts.googleapis.com/css2?family=Big+John&display=swap" rel="stylesheet" />
+<!-- Fonts import: Poppins for headings/buttons, Merriweather for body text -->
+<link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Poppins:wght@600;700;900&display=swap" rel="stylesheet" />
 
 <style>
   /* General Reset and Styles */
   * {
     box-sizing: border-box;
     margin: 0; padding: 0;
-    font-family: 'Arial', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Merriweather', serif;
   }
 
   body {
-    background: #001F3F; /* Navy blue background */
+    background: #001f3f; /* dark navy */
     padding-bottom: 70px; /* for fixed footer */
-    color: #E6E6E6; /* light grey for good contrast */
+    color: #e0e0e0; /* soft white text */
   }
   
   .container {
@@ -32,10 +32,10 @@
   header {
     position: fixed;
     top: 0; left: 0; right: 0;
-    background: #0B3D91; /* darker navy */
+    background: #0a2b66; /* darker navy */
     color: white;
     z-index: 1000;
-    box-shadow: 0 3px 15px rgba(0,0,0,0.7);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.8);
   }
 
   header .container {
@@ -46,12 +46,12 @@
   }
 
   header .logo {
-    font-family: 'Big John', cursive;
+    font-family: 'Poppins', sans-serif;
     font-size: 1.6em;
     font-weight: 900;
     letter-spacing: 3px;
-    color: #FFD700; /* Gold */
-    text-shadow: 1px 1px 3px #000a00aa;
+    color: #ffd700; /* gold */
+    text-shadow: 1px 1px 2px #000a00cc;
   }
 
   nav ul {
@@ -61,27 +61,27 @@
   }
 
   nav ul li a {
-    color: #E6E6E6;
+    color: #e0e0e0;
     text-decoration: none;
     padding: 7px 16px;
     border-radius: 9999px;
     font-weight: 700;
-    font-family: Arial, sans-serif;
-    font-size: 0.9em;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95em;
     transition: background-color 0.3s ease, color 0.3s ease;
     cursor: pointer;
     letter-spacing: 0.04em;
   }
   nav ul li a.active,
   nav ul li a:hover {
-    background-color: #FFD700; /* gold */
-    color: #003300;
-    box-shadow: 0 0 10px #ffd700dd;
+    background-color: #ffd700; /* gold */
+    color: #001f3f;
+    box-shadow: 0 0 8px #ffd700cc;
   }
 
   /* Main Content */
   main {
-    padding: 110px 20px 40px; /* accommodate fixed header */
+    padding: 110px 20px 40px; /* room for header */
     display: flex;
     flex-direction: column;
     gap: 42px;
@@ -89,13 +89,14 @@
 
   section {
     display: none;
-    background: white;
-    color: #0B3D91; /* navy text */
+    background: transparent;
+    color: #e0e0e0;
     border-radius: 1rem;
-    box-shadow: 0 8px 30px rgba(0,63,112,0.3);
+    /* gold border lines only */
+    border: 2px solid #ffd700;
     padding: 35px 45px;
-    border: 4px solid #ffd700; /* bright gold border */
-    font-family: 'Georgia', serif;
+    font-family: 'Merriweather', serif;
+    box-shadow: 0 0 10px 0px #ffd70088 inset;
   }
 
   section.active {
@@ -104,21 +105,21 @@
 
   /* Home Section */
   #home h1 {
-    font-family: 'Big John', cursive;
+    font-family: 'Poppins', sans-serif;
     font-weight: 900;
     font-size: 2.6em;
     margin-bottom: 16px;
     letter-spacing: 0.08em;
-    color: #003366;
-    text-shadow: 2px 2px 4px #bbb53baa;
+    color: #ffd700;
+    text-shadow: 1px 1px 4px #bfa547aa;
   }
   #home p {
     font-size: 1.1em;
     max-width: 640px;
     line-height: 1.7;
-    font-family: Arial, sans-serif;
-    color: #26418f;
+    font-family: 'Merriweather', serif;
     margin-bottom: 30px;
+    color: #f0e68c; /* lighter goldish */
   }
   #home .services-buttons {
     display: flex;
@@ -129,22 +130,23 @@
     margin: 0 auto 40px;
   }
   .service-btn {
-    background: #ffd700;
-    border: none;
-    color: #003300;
+    background: transparent;
+    border: 2px solid #ffd700;
+    color: #ffd700;
     font-weight: 700;
     padding: 14px 28px;
     border-radius: 1rem;
     font-size: 1em;
     cursor: pointer;
-    box-shadow: 0 5px 15px #cca600cc;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
     white-space: nowrap;
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
   }
   .service-btn:hover {
-    background: #ccac00;
-    box-shadow: 0 7px 22px #ccac0088;
+    background: #ffd700;
+    color: #001f3f;
+    box-shadow: 0 0 12px #ffd700dd;
   }
   #home .quotes {
     max-width: 720px;
@@ -152,23 +154,22 @@
     font-style: italic;
     font-weight: 700;
     font-size: 1.05em;
-    color: #001f3f;
+    color: #eee3a5;
     line-height: 1.7;
     border-left: 6px solid #ffd700;
-    background: #f9f4d4;
-    padding: 15px 25px;
-    border-radius: 1rem 0 0 1rem;
-    font-family: 'Georgia', serif;
+    background: transparent;
+    padding-left: 20px;
+    font-family: 'Merriweather', serif;
   }
 
   /* About Page */
   #about h2, #services h2, #contact h2 {
-    font-family: 'Big John', cursive;
+    font-family: 'Poppins', sans-serif;
     font-size: 2.2em;
     margin-bottom: 25px;
-    color: #003366;
+    color: #ffd700;
     text-align: center;
-    font-weight: 800;
+    font-weight: 900;
   }
   #about p, #about .extended,
   #services p, #services .additional-services p,
@@ -177,8 +178,8 @@
     margin: 0 auto 20px;
     font-size: 1em;
     line-height: 1.6;
-    color: #122244;
-    font-family: Arial, sans-serif;
+    color: #ddd;
+    font-family: 'Merriweather', serif;
   }
   #about ul {
     max-width: 720px;
@@ -186,8 +187,8 @@
     list-style: disc inside;
     font-size: 1em;
     line-height: 1.6;
-    color: #2c3a63;
-    font-family: Arial, sans-serif;
+    color: #ccc;
+    font-family: 'Merriweather', serif;
   }
 
   /* Services Page */
@@ -199,26 +200,26 @@
   }
   .service-item {
     flex: 1 1 280px;
-    background: #f0eabb;
+    background: transparent;
     border-radius: 1rem;
-    border: 2px solid #cca500;
+    border: 2px solid #ffd700;
     padding: 25px 30px;
-    box-shadow: 0 4px 14px rgb(201 165 54 / 0.20);
+    box-shadow: 0 0 8px 0 #ffd70088 inset;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     font-weight: 600;
-    color: #4b4d15;
-    font-family: Arial, sans-serif;
+    color: #ffd700;
+    font-family: 'Merriweather', serif;
   }
   .service-item:hover {
     transform: translateY(-6px);
-    box-shadow: 0 7px 18px rgb(201 165 54 / 0.35);
-    background: #fff9a1;
+    box-shadow: 0 0 18px 3px #ffd700cc inset;
+    background: transparent;
   }
   .service-item h3 {
     margin-bottom: 8px;
-    color: #003366;
-    font-family: 'Big John', cursive;
-    font-weight: 800;
+    color: #ffd700;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
     font-size: 1.3em;
   }
   .service-item p {
@@ -229,7 +230,7 @@
     max-width: 720px;
     margin: 28px auto 0;
     font-size: 1em;
-    color: #4a4a4a;
+    color: #ddd;
     line-height: 1.6;
   }
   #services .quote {
@@ -237,59 +238,65 @@
     max-width: 720px;
     margin: 40px auto 0;
     font-size: 1.05em;
-    color: #675e17;
-    border-left: 5px solid #c9a536;
+    color: #f3e38f;
+    border-left: 5px solid #ffd700;
     padding-left: 1em;
+    font-family: 'Merriweather', serif;
   }
 
   /* Contact Page */
   form {
     max-width: 600px;
-    background: white;
-    padding: 32px 38px;
+    background: transparent;
+    padding: 30px 38px;
     border-radius: 1rem;
-    border: 3px solid #cca500;
-    box-shadow: 0 5px 14px rgb(204 165 0 / 0.3);
+    border: 3px solid #ffd700;
     display: flex;
     flex-direction: column;
     gap: 16px;
     margin: 0 auto 35px;
-    font-family: Arial, sans-serif;
+    font-family: 'Merriweather', serif;
+    color: #ffd700;
   }
 
   form input, form textarea {
     padding: 12px 16px;
-    border: 1.5px solid #cca500;
-    border-radius: 0.618rem;
+    border: 1.5px solid #ffd700;
+    border-radius: 0.6rem;
     font-size: 1em;
     width: 100%;
     resize: vertical;
-    transition: border-color 0.3s ease;
-    color: #333300;
+    background: transparent;
+    color: #ffd700;
     font-weight: 600;
+    transition: border-color 0.3s ease;
+  }
+  form input::placeholder, form textarea::placeholder {
+    color: #ffd700aa;
   }
   form input:focus, form textarea:focus {
-    border-color: #003366;
+    border-color: #fff;
     outline: none;
   }
 
   form button {
-    background: #cca500;
-    color: #111111;
-    border: none;
-    font-weight: 800;
+    background: transparent;
+    color: #ffd700;
+    border: 2px solid #ffd700;
+    font-weight: 700;
     border-radius: 0.8rem;
-    padding: 16px;
+    padding: 14px;
     cursor: pointer;
     font-size: 1em;
     letter-spacing: 0.05em;
-    box-shadow: 0 5px 15px #cca500cc;
+    box-shadow: 0 0 10px #ffd700aa;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    font-family: 'Big John', cursive;
+    font-family: 'Poppins', sans-serif;
   }
   form button:hover {
-    background: #7b9100;
-    box-shadow: 0 7px 22px #7b9100bb;
+    background: #ffd700;
+    color: #001f3f;
+    box-shadow: 0 0 20px #ffd700dd;
   }
 
   #form-message {
@@ -298,26 +305,27 @@
     display: none;
     margin-top: 10px;
     text-align: center;
-    color: #003300;
+    color: #ffd700;
   }
   #form-message.error {
-    color: #8a1f1f;
+    color: #ff8c00;
   }
 
   .contact-info {
     max-width: 600px;
     margin: 0 auto 35px;
-    color: #2b2d2b;
+    color: #ffd700cc;
     font-size: 1.05em;
     line-height: 1.6;
     text-align: center;
-    font-family: Arial, sans-serif;
+    font-family: 'Merriweather', serif;
   }
   .directions-btn {
     display: inline-block;
     margin: 20px auto 0;
-    background: #cca500;
-    color: #111111;
+    background: transparent;
+    border: 2px solid #ffd700;
+    color: #ffd700;
     text-decoration: none;
     padding: 14px 32px;
     border-radius: 1rem;
@@ -325,25 +333,25 @@
     font-size: 1em;
     letter-spacing: 0.05em;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 5px 15px #cca500cc;
-    font-family: 'Big John', cursive;
+    box-shadow: 0 0 12px #ffd700cc;
+    font-family: 'Poppins', sans-serif;
   }
   .directions-btn:hover {
-    background: #7b9100;
-    box-shadow: 0 7px 22px #7b9100bb;
+    background: #ffd700;
+    color: #001f3f;
+    box-shadow: 0 0 30px #ffd700ff;
   }
 
   /* Footer fixed */
   footer {
     position: fixed;
     bottom: 0; left: 0; right: 0;
-    background: #fefbf3;
+    background: #001f3f;
     padding: 15px 20px;
     text-align: center;
-    box-shadow: 0 -3px 10px rgba(204, 165, 0, 0.3);
     font-weight: 700;
     font-size: 1em;
-    color: #4a4a1f;
+    color: #ffd700cc;
     z-index: 1000;
     font-family: Arial, sans-serif;
   }
